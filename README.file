@@ -1,0 +1,40 @@
+CRUD realizado com NODE.JS para a criação da API e Mysql para o gerenciamento de dados;
+
+Para utilização:
+* Abra o terminal na pasta da aplicação e instale as dependências do node (npm install);
+* Rode o script.sql no SGBD de sua peferência;
+* Use alguma aplicação para hostear o SQL;
+* Abra o terminal na pasta da aplicação e rode a aplicação (npm start);
+
+Rotas:
+
+GET[
+    http://localhost:3001/produtos,
+    http://localhost:3001/produtos/id
+],
+
+POST [
+    http://localhost:3001/produtos
+
+    {
+        "nomeProduto": String,
+        "categoria": String,
+        "codEan": String,
+        "preco": Float
+    }
+],
+
+PUT [
+    http://localhost:3001/produtos
+
+    {
+        "nomeProduto": String,
+        "categoria": String,
+        "codEan": String,
+        "preco": Float
+    }
+],
+
+DELETE[
+    http://localhost:3001/produtos/id
+]

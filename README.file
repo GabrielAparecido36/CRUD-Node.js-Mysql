@@ -27,6 +27,7 @@ POST [
         "categoria": String,
         "codEan": String,
         "preco": Float,
+        "file": File,
         "token": String
     },
 

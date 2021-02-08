@@ -8,6 +8,7 @@ const usuariosRoute = require('../routes/usuarios');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/produtos', produtosRoute);
 app.use('/usuarios', usuariosRoute);

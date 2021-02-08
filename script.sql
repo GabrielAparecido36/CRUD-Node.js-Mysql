@@ -11,3 +11,11 @@ create table produtos(
 );
 
 insert into produtos(nomeProduto, categoria, codEan, preco) values ('Leite condensado', 'Doce', 789100010010, 5.50);
+
+create table usuarios(
+	id_usuario int not null auto_increment primary key,
+    email varchar(100) not null unique,
+    senha varchar(100)
+);
+
+ALTER TABLE produtos ADD COLUMN imagem_produto varchar(255);

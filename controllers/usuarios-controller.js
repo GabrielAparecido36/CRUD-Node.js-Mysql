@@ -2,7 +2,7 @@
 
 const mysql = require('../src/sql');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 exports.cadastro = (req, res, next) => {
     mysql.getConnection((error, conn) => {

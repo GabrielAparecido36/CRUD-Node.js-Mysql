@@ -1,7 +1,6 @@
 'use strict';
 
 const mysql = require('../src/sql');
-const login = require('../middleware/loginMW')
 
 exports.get = (req, res, next) => {
     mysql.getConnection((error, conn) => {
@@ -30,12 +29,12 @@ exports.getId = (req, res, next) => {
     });
 };
 
-exports.post =  (req, res, next) => {
+exports.post = (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(
-            'insert into produtos(nomeProduto, categoria, codEan, preco) values (?, ?, ?, ?);',
-            [req.body.nomeProduto, req.body.categoria, req.body.codEan, req.body.preco],
+            'insert into produtos(nomeProduto, categoria, codEan, preco, imagem_produto) values (?, ?, ?, ?, ?);',
+            [req.body.nomeProduto, req.body.categoria, req.body.codEan, req.body.preco, req.file.path],
             (error, resultado, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
@@ -56,13 +55,15 @@ exports.put =  (req, res, next) => {
                 set nomeProduto = ?,
                 categoria= ?,
                 codEan = ?,
-                preco = ?
+                preco = ?,
+                imagem_produto = ?
             where id = ?`,
 
             [req.body.nomeProduto,
             req.body.categoria,
             req.body.codEan,
             req.body.preco,
+            req.file.path,
             req.params.id],
             (error, resultado, field) => {
                 conn.release();

@@ -4,11 +4,13 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const produtosRoute = require('../routes/produtos');
+const usuariosRoute = require('../routes/usuarios');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/produtos', produtosRoute);
+app.use('/usuarios', usuariosRoute);
 
 //Controlador de acesso
 app.use((req, res, next) => {

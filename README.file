@@ -1,3 +1,10 @@
+Versão 1.1
+Adicionado: 
+
+Rota de cadastro;
+Rota de login;
+Geração e Autenticação de Token;
+
 CRUD realizado com NODE.JS para a criação da API e Mysql para o gerenciamento de dados;
 
 Para utilização:
@@ -15,13 +22,27 @@ GET[
 
 POST [
     http://localhost:3001/produtos
-
     {
         "nomeProduto": String,
         "categoria": String,
         "codEan": String,
-        "preco": Float
-    }
+        "preco": Float,
+        "token": String
+    },
+
+    http://localhost:3001/usuarios/cadastro
+    {
+        "email":String,
+        "password":String
+    },
+
+        http://localhost:3001/usuarios/login
+    {
+        "email":String,
+        "password":String
+       / Retorna o token. /
+    },
+    
 ],
 
 PUT [
@@ -31,10 +52,14 @@ PUT [
         "nomeProduto": String,
         "categoria": String,
         "codEan": String,
-        "preco": Float
+        "preco": Float,
+        "token": String
     }
 ],
 
 DELETE[
     http://localhost:3001/produtos/id
+    {
+        "token": String
+    }
 ]

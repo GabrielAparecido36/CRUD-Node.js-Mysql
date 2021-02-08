@@ -1,6 +1,7 @@
 'use strict';
 
 const mysql = require('../src/sql');
+const login = require('../middleware/loginMW')
 
 exports.get = (req, res, next) => {
     mysql.getConnection((error, conn) => {
@@ -83,7 +84,6 @@ exports.delete =  (req, res, next) => {
             [req.params.id],
             (error, resultado, fields) => {
                 if (error) { return res.status(500).send({ error: error }) }
-                console.log(resultado)
                 return res.status(200).send({ mensagem: "Produto deletado com sucesso!" })
             }
         )

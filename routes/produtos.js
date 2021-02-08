@@ -1,17 +1,17 @@
 'use strict';
 
 const router = require('express').Router();
-const mysql = require('../src/sql');
 const controller = require('../controllers/produto-controller');
+const login = require('../middleware/loginMW')
 
 router.get('/', controller.get);
 
 router.get('/:id', controller.getId);
 
-router.post('/', controller.post);
+router.post('/', login, controller.post);
 
 router.put('/:id', controller.put);
 
-router.delete('/:id', controller.delete);
+router.delete('/:id', login, controller.delete);
 
 module.exports = router;

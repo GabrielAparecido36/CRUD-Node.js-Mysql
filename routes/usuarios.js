@@ -7,5 +7,4 @@ router.post('/cadastro', controller.cadastro);
 
 router.post('/login', controller.login);
 
-
 module.exports = router;

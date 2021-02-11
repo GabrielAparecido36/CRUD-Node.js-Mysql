@@ -1,9 +1,9 @@
-Versão 1.1
+Versão 1.2
 Adicionado: 
 
-Rota de cadastro;
-Rota de login;
-Geração e Autenticação de Token;
+Validação de email;
+Confirmação de email;
+Adicionada a verificação de email confirmado na rota de login;
 
 CRUD realizado com NODE.JS para a criação da API e Mysql para o gerenciamento de dados;
 
@@ -17,7 +17,8 @@ Rotas:
 
 GET[
     http://localhost:3001/produtos,
-    http://localhost:3001/produtos/id
+    http://localhost:3001/produtos/id,
+    http://localhost:3001/confirmacao/token
 ],
 
 POST [
@@ -35,6 +36,7 @@ POST [
     {
         "email":String,
         "password":String
+        / Retorna o token de cadastro (Temporário até ser incrementado sistema de envio por e-mail.). /
     },
 
         http://localhost:3001/usuarios/login
@@ -42,6 +44,7 @@ POST [
         "email":String,
         "password":String
        / Retorna o token. /
+       / Caso não esteja com o e-mail confirmado, retorna o token de conformação de e-mail. /
     },
     
 ],

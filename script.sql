@@ -19,3 +19,5 @@ create table usuarios(
 );
 
 ALTER TABLE produtos ADD COLUMN imagem_produto varchar(255);
+
+ALTER TABLE usuarios ADD COLUMN confirmacaoEmail boolean default false;
